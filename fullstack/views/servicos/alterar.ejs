@@ -1,0 +1,48 @@
+<link href="/css/Usuarios/criar.css" >
+
+<style>
+    .campoErro {
+        border-color: red;
+    }
+</style>
+
+<script src="/js/Servicos/criar.js"></script>
+
+<h1>Criar novo serviço</h1>
+
+<div>
+    <div class="alert alert-danger" role="alert" id="erros" style="display:none">
+
+    </div>
+    <div class="alert alert-success" role="alert" id="alertaSucesso" style="display:none;" >
+        
+    </div>
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="vei">Veículo</label>
+            <select class="form-control" name="vei" id="vei">
+                <option value="" selected disabled>Selecione...</option>
+                <% listaVei.forEach(function(veiculo){ %>
+                  <option value="<%= veiculo.veiId %>"><%= veiculo.veiId %> | <%= veiculo.veiModelo %></option>
+                <% })%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="serv">Serviço</label>
+            <select class="form-control" name="serv" id="serv">
+                <option value="" selected disabled>Selecione...</option>
+                <% listaServ.forEach(function(servico){ %>
+                  <option value="<%= servico.servId %>"> <%= servico.servId %> | <%= servico.servDesc %></option>
+                <% })%>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="valor">Valor</label>
+            <input type="text" class="form-control" id="valor">
+          </div>
+        </div>
+        <button type="button" id="btnGravar" class="btn btn-primary">Gravar</button>
+        <a class="btn btn-secondary" href="/">Voltar</a>
+    </form>
+</div>
